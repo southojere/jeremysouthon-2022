@@ -16,11 +16,11 @@ import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 const links = [
-  { href: '/', label: 'Home', Icon: RiHome5Line },
-  { href: '/', label: 'About', Icon: RiUser3Line },
-  { href: '/', label: 'Services', Icon: RiBriefcase2Line },
-  { href: '/', label: 'Portfolio', Icon: RiCollageLine },
-  { href: '/', label: 'Contact', Icon: RiMessage2Line },
+  { href: '#home', label: 'Home', Icon: RiHome5Line },
+  { href: '#about', label: 'About', Icon: RiUser3Line },
+  { href: '#services', label: 'Services', Icon: RiBriefcase2Line },
+  { href: '#portfolio', label: 'Portfolio', Icon: RiCollageLine },
+  { href: '#contact', label: 'Contact', Icon: RiMessage2Line },
 ];
 
 export function Header() {
@@ -91,8 +91,9 @@ export function PortraitHeader() {
             {links.map((link) => (
               <li key={`${link.label}-key`}>
                 <UnstyledLink
-                  href='#'
+                  href={link.href}
                   className='flex flex-col items-center gap-2 hover:text-primary-700'
+                  onClick={toggleMenu}
                 >
                   <link.Icon className='text-lg text-primary-500' />
                   {link.label}
