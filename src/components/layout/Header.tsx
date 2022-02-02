@@ -16,10 +16,11 @@ import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/', label: 'About' },
-  { href: '/', label: 'Services' },
-  { href: '/', label: 'Portfolio' },
+  { href: '/', label: 'Home', Icon: RiHome5Line },
+  { href: '/', label: 'About', Icon: RiUser3Line },
+  { href: '/', label: 'Services', Icon: RiBriefcase2Line },
+  { href: '/', label: 'Portfolio', Icon: RiCollageLine },
+  { href: '/', label: 'Contact', Icon: RiMessage2Line },
 ];
 
 export function Header() {
@@ -87,52 +88,17 @@ export function PortraitHeader() {
           )}
         >
           <ul id='navList' className='grid grid-cols-3 gap-8'>
-            {/*TODO: use for loop*/}
-            <li>
-              <UnstyledLink
-                href='#'
-                className='flex flex-col items-center gap-2 hover:text-primary-700'
-              >
-                <RiHome5Line className='text-lg text-primary-500' />
-                Home
-              </UnstyledLink>
-            </li>
-            <li>
-              <UnstyledLink
-                href='#about'
-                className='flex flex-col items-center gap-2 hover:text-primary-700'
-              >
-                <RiUser3Line className='text-lg text-primary-500' />
-                About
-              </UnstyledLink>
-            </li>
-            <li>
-              <UnstyledLink
-                href='#services'
-                className='flex flex-col items-center gap-2 hover:text-primary-700'
-              >
-                <RiBriefcase2Line className='text-lg text-primary-500' />
-                Services
-              </UnstyledLink>
-            </li>
-            <li>
-              <UnstyledLink
-                href='#portfolio'
-                className='flex flex-col items-center gap-2 hover:text-primary-700'
-              >
-                <RiCollageLine className='text-lg text-primary-500' />
-                Portfolio
-              </UnstyledLink>
-            </li>
-            <li>
-              <UnstyledLink
-                href='#contact'
-                className='flex flex-col items-center gap-2 hover:text-primary-700'
-              >
-                <RiMessage2Line className='text-lg text-primary-500' />
-                Contact
-              </UnstyledLink>
-            </li>
+            {links.map((link) => (
+              <li key={`${link.label}-key`}>
+                <UnstyledLink
+                  href='#'
+                  className='flex flex-col items-center gap-2 hover:text-primary-700'
+                >
+                  <link.Icon className='text-lg text-primary-500' />
+                  {link.label}
+                </UnstyledLink>
+              </li>
+            ))}
           </ul>
           <div
             id='navClose'
