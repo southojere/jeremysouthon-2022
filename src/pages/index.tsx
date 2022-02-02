@@ -1,43 +1,65 @@
 import * as React from 'react';
-import { useDarkMode } from 'usehooks-ts';
+import {
+  RiArrowDownLine,
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiMouseLine,
+  RiSendPlaneFill,
+} from 'react-icons/all';
 
 import { PortraitHeader } from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
-import UnderlineLink from '@/components/links/UnderlineLink';
+import ButtonLink from '@/components/links/ButtonLink';
+import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-
 export default function HomePage() {
-  const { isDarkMode } = useDarkMode();
   return (
     <Layout>
-      {/*<Header/>*/}
       <PortraitHeader />
       <Seo templateTitle='Home' />
-      <Seo />
-
-      <main className={isDarkMode ? 'tw-dark' : ''}>
-        <section className='layout mt-11'>
-          <h2 className='max-w-lg font-medium leading-relaxed'>
-            Software developer based in Sydney & Wellington. Building fun and
-            user-friendly applications.
-          </h2>
-          <p className='mt-8  text-xl'>
-            Available for freelancing opportunities. Find me on{' '}
-            <UnderlineLink href='google.com'> LinkedIn</UnderlineLink>,{' '}
-            <UnderlineLink href='google.com'> GitHub</UnderlineLink>, or just
-            send me an{' '}
-            <UnderlineLink href='southon55@gmail.com' type='mail'>
-              email
-            </UnderlineLink>
-          </p>
+      <main>
+        <section id='home' className='layout pt-8 pb-16'>
+          <div>
+            <h1 className='mb-3 text-4xl font-semibold'>Hi, I&apos;m Jeremy</h1>
+            <h3 className='mb-3 text-xl font-semibold text-gray-600'>
+              Full-stack developer
+            </h3>
+            <p className='mb-4 text-xl font-light text-gray-600'>
+              Available for freelancing opportunities. Developing fun and
+              user-friendly applications.
+            </p>
+            <div id='socialContainer' className='mb-8 flex gap-2 text-2xl'>
+              <UnstyledLink
+                href='https://github.com'
+                openNewTab
+                className='text-primary-500 hover:text-primary-800'
+              >
+                <RiGithubFill />
+              </UnstyledLink>
+              <UnstyledLink
+                href='https://linkedin.com'
+                openNewTab
+                className='text-primary-500 hover:text-primary-800'
+              >
+                <RiLinkedinBoxFill />
+              </UnstyledLink>
+            </div>
+            <ButtonLink className='gap-2' variant='primary' href='#contact'>
+              Contact
+              <RiSendPlaneFill />
+            </ButtonLink>
+          </div>
+          <div id='homeScroll' className='hidden'>
+            <UnstyledLink
+              href='#about'
+              className='mt-4 inline-flex items-center gap-2 transition-all duration-300 hover:translate-y-1'
+            >
+              <RiMouseLine className='text-lg ' />
+              <span>Scroll down</span>
+              <RiArrowDownLine className='text-base' />
+            </UnstyledLink>
+          </div>
         </section>
       </main>
     </Layout>
