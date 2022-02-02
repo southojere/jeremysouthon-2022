@@ -26,9 +26,7 @@ const links = [
 function Logo() {
   return (
     <UnstyledLink href='/' className='font-medium hover:text-gray-600'>
-      <p className='font-medium text-primary-500 hover:text-primary-900'>
-        Jeremy
-      </p>
+      <p className='font-medium hover:text-primary-900'>Jeremy</p>
     </UnstyledLink>
   );
 }
@@ -75,7 +73,7 @@ export function PortraitHeader() {
 
   const OpenMenuButton = () => (
     <div id='menuToggle' className='cursor-pointer' onClick={toggleMenu}>
-      <RiApps2Line className='text-base text-primary-500 hover:text-primary-900' />
+      <RiApps2Line className='text-base hover:text-primary-900' />
     </div>
   );
 
@@ -101,7 +99,7 @@ export function PortraitHeader() {
                   className='flex flex-col items-center gap-2 hover:text-primary-700'
                   onClick={toggleMenu}
                 >
-                  <link.Icon className='text-lg text-primary-500' />
+                  <link.Icon className='text-lg hover:text-primary-500' />
                   {link.label}
                 </UnstyledLink>
               </li>
