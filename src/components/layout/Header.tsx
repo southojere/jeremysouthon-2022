@@ -23,15 +23,23 @@ const links = [
   { href: '#contact', label: 'Contact', Icon: RiMessage2Line },
 ];
 
+function Logo() {
+  return (
+    <UnstyledLink href='/' className='font-medium hover:text-gray-600'>
+      <p className='font-medium text-primary-500 hover:text-primary-900'>
+        Jeremy
+      </p>
+    </UnstyledLink>
+  );
+}
+
 export function Header() {
   const { isDarkMode, toggle } = useDarkMode();
 
   return (
     <header className='mt-8'>
       <div className='layout flex h-14 items-center justify-between'>
-        <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-          <p className='font-medium'>Jeremy</p>
-        </UnstyledLink>
+        <Logo />
         <nav>
           <ul className='flex items-center justify-between space-x-4'>
             {links.map(({ href, label }) => (
@@ -65,21 +73,19 @@ export function PortraitHeader() {
     setVisible((value) => !value);
   };
 
+  const OpenMenuButton = () => (
+    <div id='menuToggle' className='cursor-pointer' onClick={toggleMenu}>
+      <RiApps2Line className='text-base text-primary-500 hover:text-primary-900' />
+    </div>
+  );
+
   return (
     <header className='fixed bottom-0 left-0 w-full bg-white'>
       <nav className='layout flex max-w-screen-md items-center justify-between pb-2'>
-        <UnstyledLink href='/' className='font-medium hover:text-gray-600'>
-          <p className='font-medium text-primary-500 hover:text-primary-900'>
-            Jeremy
-          </p>
-        </UnstyledLink>
+        <Logo />
+        <OpenMenuButton />
 
-        {/* nav action buttons*/}
-        <div id='menuToggle' className='cursor-pointer' onClick={toggleMenu}>
-          <RiApps2Line className='text-base text-primary-500 hover:text-primary-900' />
-        </div>
-
-        {/*nav menu*/}
+        {/*Menu Content*/}
         <div
           id='navMenu'
           className={clsx(
