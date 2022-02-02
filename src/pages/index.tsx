@@ -5,7 +5,7 @@ import {
   RiLinkedinBoxFill,
   RiMouseLine,
   RiSendPlaneFill,
-} from 'react-icons/all';
+} from 'react-icons/ri';
 
 import { PortraitHeader } from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
@@ -55,7 +55,7 @@ export default function HomePage() {
               href='#about'
               className='mt-4 inline-flex items-center gap-2 transition-all duration-300 hover:translate-y-1'
             >
-              <RiMouseLine className='text-lg ' />
+              <RiMouseLine className='text-lg' />
               <span>Scroll down</span>
               <RiArrowDownLine className='text-base' />
             </UnstyledLink>
