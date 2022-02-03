@@ -25,7 +25,7 @@ const links = [
 
 function Logo() {
   return (
-    <UnstyledLink href='/' className='font-medium hover:text-gray-600'>
+    <UnstyledLink href='/' className='-z-0 font-medium hover:text-gray-600'>
       <p className='font-medium hover:text-primary-900'>Jeremy</p>
     </UnstyledLink>
   );
@@ -73,13 +73,15 @@ export function PortraitHeader() {
 
   const OpenMenuButton = () => (
     <div id='menuToggle' className='cursor-pointer' onClick={toggleMenu}>
-      <RiApps2Line className='text-base hover:text-primary-900' />
+      <Button variant='ghost'>
+        <RiApps2Line className='text-lg hover:text-primary-900' />
+      </Button>
     </div>
   );
 
   return (
-    <header className='fixed bottom-0 left-0 w-full bg-white'>
-      <nav className='layout flex max-w-screen-md items-center justify-between pb-2'>
+    <header className='fixed bottom-0 left-0 z-20 w-full bg-white shadow-inner'>
+      <nav className='layout flex max-w-screen-md items-center justify-between py-2'>
         <Logo />
         <OpenMenuButton />
 
@@ -87,7 +89,7 @@ export function PortraitHeader() {
         <div
           id='navMenu'
           className={clsx(
-            'fixed left-0 w-full rounded-t-3xl bg-white pt-8 pr-6 pb-16 pl-6 shadow-inner transition-all duration-300 ease-in-out',
+            'fixed left-0 z-50 w-full rounded-t-3xl bg-white pt-8 pr-6 pb-16 pl-6 shadow-inner transition-all duration-300 ease-in-out',
             visible ? 'bottom-0' : '-bottom-full '
           )}
         >
