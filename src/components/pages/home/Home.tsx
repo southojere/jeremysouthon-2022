@@ -7,6 +7,7 @@ import Seo from '@/components/Seo';
 import { AboutSection } from './About';
 import { IntroSection } from './Intro';
 import { PortfolioSection } from './Portfolio';
+import { ServicesSection } from './Services';
 
 export const Home = () => {
   return (
@@ -16,6 +17,7 @@ export const Home = () => {
       <main>
         <IntroSection />
         <PortfolioSection />
+        <ServicesSection />
         <AboutSection />
       </main>
     </Layout>
