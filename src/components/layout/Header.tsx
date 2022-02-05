@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import {
-  RiApps2Line,
   RiBriefcase2Line,
   RiCloseFill,
   RiCollageLine,
   RiContrastLine,
   RiHome5Line,
+  RiMenuFill,
   RiMessage2Line,
   RiUser3Line,
 } from 'react-icons/ri';
@@ -15,7 +15,13 @@ import { useDarkMode } from 'usehooks-ts';
 import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-const links = [
+type Link = {
+  href: string;
+  label: string;
+  Icon: ({ className }: { className: string }) => JSX.Element;
+};
+
+export const links: Link[] = [
   { href: '#home', label: 'Home', Icon: RiHome5Line },
   { href: '#about', label: 'About', Icon: RiUser3Line },
   { href: '#services', label: 'Services', Icon: RiBriefcase2Line },
@@ -74,7 +80,7 @@ export function PortraitHeader() {
   const OpenMenuButton = () => (
     <div id='menuToggle' className='cursor-pointer' onClick={toggleMenu}>
       <Button variant='ghost'>
-        <RiApps2Line className='text-lg hover:text-primary-900' />
+        <RiMenuFill className='text-lg hover:text-primary-900' />
       </Button>
     </div>
   );
