@@ -19,14 +19,26 @@ type Link = {
   href: string;
   label: string;
   Icon: ({ className }: { className: string }) => JSX.Element;
+  // should match the section id's
+  id: 'home' | 'about' | 'services' | 'portfolio' | 'contact';
 };
 
 export const links: Link[] = [
-  { href: '#home', label: 'Home', Icon: RiHome5Line },
-  { href: '#about', label: 'About', Icon: RiUser3Line },
-  { href: '#services', label: 'Services', Icon: RiBriefcase2Line },
-  { href: '#portfolio', label: 'Portfolio', Icon: RiCollageLine },
-  { href: '#contact', label: 'Contact', Icon: RiMessage2Line },
+  { id: 'home', href: '#home', label: 'Home', Icon: RiHome5Line },
+  {
+    id: 'portfolio',
+    href: '#portfolio',
+    label: 'Portfolio',
+    Icon: RiCollageLine,
+  },
+  {
+    id: 'services',
+    href: '#services',
+    label: 'Services',
+    Icon: RiBriefcase2Line,
+  },
+  { id: 'about', href: '#about', label: 'About', Icon: RiUser3Line },
+  { id: 'contact', href: '#contact', label: 'Contact', Icon: RiMessage2Line },
 ];
 
 function Logo() {
@@ -101,7 +113,7 @@ export function PortraitHeader() {
         >
           <ul id='navList' className='grid grid-cols-3 gap-8'>
             {links.map((link) => (
-              <li key={`${link.label}-key`}>
+              <li key={`${link.id}-key`}>
                 <UnstyledLink
                   href={link.href}
                   className='flex flex-col items-center gap-2 hover:text-primary-700'
