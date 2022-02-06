@@ -11,7 +11,6 @@ import { IntroSection } from './Intro';
 import { PortfolioSection } from './Portfolio';
 import { ServicesSection } from './Services';
 
-// TODO: delete comment
 export const Home = () => {
   return (
     <Layout>
