@@ -9,19 +9,30 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const IntroSection = () => {
   return (
-    <section id='home' className='layout pt-8 pb-16'>
+    <section id='home' className='layout pt-8 pb-8 md:pb-16'>
       <div>
-        <h1 className='mb-3 text-4xl font-semibold text-slate-800'>
+        {/* <h1 className='mb-3 text-4xl font-semibold text-slate-800'>
           Hi, I&apos;m Jeremy
-        </h1>
-        <h3 className='mb-3 text-xl font-semibold text-gray-600'>
+        </h1> */}
+        {/* <h3 className='mb-3 text-xl font-semibold text-gray-600'>
           Full-stack developer
+        </h3> */}
+        <h3 className='mb-12 text-xl font-semibold text-gray-800 md:hidden'>
+          Jeremy Southon
         </h3>
-        <p className='mb-4 text-xl font-light text-gray-600'>
-          Available for freelancing opportunities. Developing fun and
-          user-friendly applications.
+        <p className='mb-4 text-xl font-light text-gray-600 md:mb-2 md:text-2xl lg:text-3xl'>
+          Software developer
+          <span className='block'>
+            Building fun, interactive, and user-friendly applications.
+          </span>
+          <span className='block'>
+            Available for freelancing opportunities.
+          </span>
         </p>
-        <div id='socialContainer' className='mb-8 flex gap-2 text-2xl'>
+        <div
+          id='socialContainer'
+          className='mb-8 flex gap-2 text-2xl md:text-3xl'
+        >
           <UnstyledLink
             href='https://github.com'
             openNewTab
@@ -37,10 +48,6 @@ export const IntroSection = () => {
             <RiLinkedinBoxFill />
           </UnstyledLink>
         </div>
-        {/* <ButtonLink className='gap-2' variant='primary' href='#contact'>
-          Contact
-          <RiSendPlaneFill />
-        </ButtonLink> */}
       </div>
       <div id='homeScroll' className='hidden'>
         <UnstyledLink

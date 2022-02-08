@@ -4,16 +4,16 @@ import {
   RiBriefcase2Line,
   RiCloseFill,
   RiCollageLine,
-  RiContrastLine,
   RiHome5Line,
   RiMenuFill,
   RiMessage2Line,
   RiUser3Line,
 } from 'react-icons/ri';
-import { useDarkMode } from 'usehooks-ts';
 
 import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
+
+import ButtonLink from '../links/ButtonLink';
 
 type Link = {
   href: string;
@@ -50,31 +50,36 @@ function Logo() {
 }
 
 export function Header() {
-  const { isDarkMode, toggle } = useDarkMode();
-
+  const contactLink = React.useMemo(
+    () => links.find((link) => link.id === 'contact'),
+    []
+  );
   return (
-    <header className='mt-8'>
-      <div className='layout flex h-14 items-center justify-between'>
-        <Logo />
+    <header className='mt-8 hidden md:mb-10 md:block'>
+      <div className='layout flex h-14 items-center justify-between lg:w-full lg:max-w-none lg:px-16'>
+        <h3 className='text-xl font-semibold text-slate-800'>Jeremy Southon</h3>
         <nav>
-          <ul className='flex items-center justify-between space-x-4'>
-            {links.map(({ href, label }) => (
-              <li key={`${href}${label}`}>
-                <UnstyledLink href={href} className='hover:text-gray-600'>
-                  {label}
-                </UnstyledLink>
-              </li>
-            ))}
-
-            <Button
-              variant={!isDarkMode ? 'dark' : 'ghost'}
-              name='theme'
-              onClick={toggle}
-            >
-              <RiContrastLine
-                className={!isDarkMode ? 'text-white' : 'text-black'}
-              />
-            </Button>
+          <ul className='flex items-center justify-between space-x-4 text-slate-700'>
+            {links
+              .filter((link) => link.id !== 'contact')
+              .map(({ href, label }) => (
+                <li key={`${href}${label}`}>
+                  <UnstyledLink
+                    href={href}
+                    className='animated-underline hover:text-gray-600 '
+                  >
+                    {label}
+                  </UnstyledLink>
+                </li>
+              ))}
+            <li className='flex items-center justify-between space-x-4 text-slate-700'>
+              <ButtonLink
+                href={contactLink?.href || ''}
+                className='rounded-3xl border-0 bg-slate-600'
+              >
+                {contactLink?.label}
+              </ButtonLink>
+            </li>
           </ul>
         </nav>
       </div>
@@ -98,7 +103,7 @@ export function PortraitHeader() {
   );
 
   return (
-    <header className='fixed bottom-0 left-0 z-20 w-full bg-white shadow-inner'>
+    <header className='fixed bottom-0 left-0 z-20 w-full bg-white shadow-inner md:hidden'>
       <nav className='layout flex max-w-screen-md items-center justify-between py-2'>
         <Logo />
         <OpenMenuButton />
