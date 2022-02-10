@@ -89,6 +89,21 @@
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    border-radius: 0.5rem;
+    @apply bg-slate-200;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-400;
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
 }
 
 @layer utilities {

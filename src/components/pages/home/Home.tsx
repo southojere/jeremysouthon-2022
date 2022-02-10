@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Footer } from '@/components/layout/Footer';
-import { PortraitHeader } from '@/components/layout/Header';
+import { Header, PortraitHeader } from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
@@ -17,6 +17,7 @@ export const Home = () => {
       <PortraitHeader />
       <Seo templateTitle='Home' />
       <main>
+        <Header />
         <IntroSection />
         <PortfolioSection />
         <ServicesSection />
