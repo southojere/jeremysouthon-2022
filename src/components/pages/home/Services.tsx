@@ -33,7 +33,7 @@ export const ServicesSection = () => {
         <h2 className=''>Services</h2>
         <span className=''>What I offer</span>
       </div>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 gap-4 md:grid-cols-3'>
         {services.map((service) => (
           <div key={`${service.title}-key`} className='flex-col p-8 shadow-md'>
             <service.Icon className='pb-4 text-4xl text-primary-500' />
