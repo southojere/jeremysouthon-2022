@@ -1,11 +1,23 @@
-import { RiGithubFill, RiLinkedinFill } from 'react-icons/ri';
+import { RiGithubFill, RiLinkedinFill, RiMailSendFill } from 'react-icons/ri';
 
 import { links } from './Header';
 import UnderlineLink from '../links/UnderlineLink';
 import UnstyledLink from '../links/UnstyledLink';
+
+export const Footer2 = () => {
+  return (
+    <footer className='bg-primary-600 p-8 text-white'>
+      <div className='flex items-center justify-center gap-4'>
+        <h1 className='mb-2 text-lg font-medium'>Lets Chat!</h1>
+        <RiMailSendFill className='text-xl' />
+      </div>
+    </footer>
+  );
+};
+
 export const Footer = () => {
   return (
-    <footer className='bg-primary-600 pt-4 pb-24 text-white md:px-0 md:pt-12 md:pb-14'>
+    <footer className='bg-primary-600 pt-8 pb-8 text-white md:px-0 md:pt-12 md:pb-14'>
       <div className='layout'>
         <div className='grid gap-y-12 md:grid-cols-3'>
           <div className='mt-4'>

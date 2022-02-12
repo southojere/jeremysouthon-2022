@@ -9,7 +9,7 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const IntroSection = () => {
   return (
-    <section id='home' className='layout pt-8 pb-8 md:pb-16'>
+    <section id='home' className='layout pt-4 pb-8 md:pb-16'>
       <div>
         {/* <h1 className='mb-3 text-4xl font-semibold text-slate-800'>
           Hi, I&apos;m Jeremy
@@ -17,9 +17,9 @@ export const IntroSection = () => {
         {/* <h3 className='mb-3 text-xl font-semibold text-gray-600'>
           Full-stack developer
         </h3> */}
-        <h3 className='mb-12 text-xl font-semibold text-gray-800 md:hidden'>
+        {/* <h3 className='mb-12 text-xl font-semibold text-gray-800 md:hidden'>
           Jeremy Southon
-        </h3>
+        </h3> */}
         <p className='mb-4 text-xl font-light text-gray-600 md:mb-2 md:text-2xl lg:text-3xl'>
           Software developer
           <span className='block'>

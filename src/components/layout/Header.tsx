@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import {
-  RiBriefcase2Line,
   RiCloseFill,
   RiCollageLine,
   RiHome5Line,
+  RiMailSendLine,
   RiMenuFill,
-  RiMessage2Line,
   RiUser3Line,
 } from 'react-icons/ri';
+import { useIntersectionObserver } from 'usehooks-ts';
+
+import clsxm from '@/lib/clsxm';
 
 import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -31,14 +33,7 @@ export const links: Link[] = [
     label: 'Portfolio',
     Icon: RiCollageLine,
   },
-  {
-    id: 'services',
-    href: '#services',
-    label: 'Services',
-    Icon: RiBriefcase2Line,
-  },
   { id: 'about', href: '#about', label: 'About', Icon: RiUser3Line },
-  { id: 'contact', href: '#contact', label: 'Contact', Icon: RiMessage2Line },
 ];
 
 function Logo() {
@@ -50,14 +45,15 @@ function Logo() {
 }
 
 export function Header() {
-  const contactLink = React.useMemo(
-    () => links.find((link) => link.id === 'contact'),
-    []
-  );
   return (
     <header className='mt-8 hidden md:mb-10 md:block'>
       <div className='layout flex h-14 items-center justify-between lg:w-full lg:max-w-none lg:px-16'>
-        <h3 className='text-xl font-semibold text-slate-800'>Jeremy Southon</h3>
+        <h3 className='flex gap-2 text-xl font-semibold text-slate-800'>
+          <div className='text-3xl'>
+            <span className='block h-7 w-7 rounded-2xl bg-gradient-to-r from-cyan-500 to-yellow-200'></span>
+          </div>
+          Jeremy Southon
+        </h3>
         <nav>
           <ul className='flex items-center justify-between space-x-4 text-slate-700'>
             {links
@@ -74,10 +70,10 @@ export function Header() {
               ))}
             <li className='flex items-center justify-between space-x-4 text-slate-700'>
               <ButtonLink
-                href={contactLink?.href || ''}
+                href='mailto:southon55@gmail.com'
                 className='rounded-3xl border-0 bg-slate-600'
               >
-                {contactLink?.label}
+                <RiMailSendLine />
               </ButtonLink>
             </li>
           </ul>
@@ -142,3 +138,29 @@ export function PortraitHeader() {
     </header>
   );
 }
+
+export const PortraitHeader2 = () => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const observer = useIntersectionObserver(ref, { threshold: 1 });
+
+  const isPinned =
+    observer?.intersectionRatio && observer?.intersectionRatio < 1;
+
+  return (
+    <div className=' sticky -top-1 md:hidden' ref={ref}>
+      <div
+        className={clsxm(
+          'flex items-center justify-between p-4 pt-5 transition-all duration-300',
+          isPinned ? 'bg-white' : ''
+        )}
+      >
+        <h3 className='text-xl font-semibold text-gray-800 md:hidden'>
+          Jeremy Southon
+        </h3>
+        <div className='text-3xl'>
+          <span className='block h-7 w-7 rounded-2xl bg-gradient-to-r from-cyan-500 to-yellow-200'></span>
+        </div>
+      </div>
+    </div>
+  );
+};
