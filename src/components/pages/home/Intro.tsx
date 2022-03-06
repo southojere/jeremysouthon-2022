@@ -25,14 +25,14 @@ export const IntroSection = () => {
           className='mb-8 flex gap-2 text-2xl md:text-3xl'
         >
           <UnstyledLink
-            href='https://github.com'
+            href='https://github.com/southojere/'
             openNewTab
             className='text-stone-700 hover:text-primary-800'
           >
             <RiGithubFill />
           </UnstyledLink>
           <UnstyledLink
-            href='https://linkedin.com'
+            href='https://www.linkedin.com/in/jeremy-s-559a93176/'
             openNewTab
             className='text-stone-700 hover:text-primary-800'
           >
