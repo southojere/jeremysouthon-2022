@@ -30,7 +30,7 @@ const projects: Project[] = [
 
 export const PortfolioSection = () => {
   return (
-    <section id='portfolio' className='layout mb-24'>
+    <section id='portfolio' className='layout mb-16'>
       <h2 className='text-3xl text-slate-800 underline'>Selected Works</h2>
       <div>
         {projects.map((project) => (

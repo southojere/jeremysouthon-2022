@@ -1,3 +1,6 @@
+/**
+ * Currently not being used.
+ */
 import * as React from 'react';
 import {
   RiArrowRightLine,
@@ -26,6 +29,7 @@ const services: Service[] = [
     title: 'App development',
   },
 ];
+
 export const ServicesSection = () => {
   return (
     <section id='services' className='layout mb-24'>
