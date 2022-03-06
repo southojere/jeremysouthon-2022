@@ -5,6 +5,7 @@ import clsxm from '@/lib/clsxm';
 
 import UnstyledLink from '../links/UnstyledLink';
 
+// @deprecated no longer needed as we don't have enough content to justify the use of this.
 export const ScrollTop = () => {
   const [visible, setVisible] = React.useState(false);
 
