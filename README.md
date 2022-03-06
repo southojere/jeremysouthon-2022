@@ -19,4 +19,4 @@ yarn dev
 
 ## Live view 🚀
 
-https://ts-nextjs-tailwind-jeremysouthon.vercel.app/
+https://jeremysouthon.vercel.app/
