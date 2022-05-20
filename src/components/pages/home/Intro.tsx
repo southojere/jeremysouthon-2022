@@ -10,7 +10,7 @@ import Typed from 'typed.js';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const IntroSection = () => {
-  const el = React.useRef<Element | string>('');
+  const el = React.useRef<HTMLSpanElement | string>('');
   const typed = React.useRef<Typed>();
   React.useEffect(() => {
     const options = {
