@@ -1,20 +1,48 @@
+import React from 'react';
 import {
   RiArrowDownLine,
   RiGithubFill,
   RiLinkedinBoxFill,
   RiMouseLine,
 } from 'react-icons/ri';
+import Typed from 'typed.js';
 
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const IntroSection = () => {
+  const el = React.useRef<Element | string>('');
+  const typed = React.useRef<Typed>();
+  React.useEffect(() => {
+    const options = {
+      strings: [
+        'interactive',
+        'tailored',
+        'mobile',
+        'responsive',
+        'web',
+        'user-friendly',
+        // 'your'
+      ],
+      loop: false,
+      typeSpeed: 50,
+      backSpeed: 60,
+    };
+
+    typed.current = new Typed(el?.current, options);
+
+    return () => {
+      if (typed && typed.current) {
+        typed.current.destroy();
+      }
+    };
+  }, []);
   return (
     <section id='home' className='layout pt-4 pb-8 md:pb-16'>
       <div>
         <p className='mb-4 text-xl font-light text-gray-600 md:mb-2 md:text-2xl lg:text-3xl'>
           Software developer
           <span className='block'>
-            Building fun, interactive, and user-friendly applications.
+            Building <span ref={el}></span>applications.
           </span>
           <span className='block'>
             Available for freelancing opportunities.
