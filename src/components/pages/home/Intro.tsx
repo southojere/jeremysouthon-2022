@@ -10,7 +10,7 @@ import Typed from 'typed.js';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const IntroSection = () => {
-  const el = React.useRef<HTMLSpanElement | string>('');
+  const el = React.useRef(null);
   const typed = React.useRef<Typed>();
   React.useEffect(() => {
     const options = {
@@ -28,7 +28,7 @@ export const IntroSection = () => {
       backSpeed: 60,
     };
 
-    typed.current = new Typed(el?.current, options);
+    typed.current = new Typed(el?.current || '', options);
 
     return () => {
       if (typed && typed.current) {
